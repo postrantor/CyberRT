@@ -42,4 +42,3 @@ install(FILES common.dag common.launch
 install(TARGETS common_component_example
   LIBRARY DESTINATION lib
 )
-

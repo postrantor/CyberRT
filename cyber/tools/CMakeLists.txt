@@ -35,7 +35,7 @@ add_executable(cyber_recorder
   cyber_recorder/player/player.cc
 )
 target_link_libraries(cyber_recorder
- ${TARGET_NAME}
+  ${TARGET_NAME}
 )
 set_target_properties(cyber_recorder PROPERTIES
   RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/cyber/tools/cyber_recorder/"

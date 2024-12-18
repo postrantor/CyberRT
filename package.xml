@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>cyber_rt</name>
+    <version>9.0.0</version>
+    <description>cyber-rt</description>
+
+    <maintainer email="zhiqi.jia@hirain.com">zhiqi.jia</maintainer>
+    <license>TODO</license>
+
+    <!-- <buildtool_depend>ament_cmake</buildtool_depend> -->
+    <!-- <depend>glog</depend> -->
+    <depend>libncurses5-dev</depend>
+    <depend>libncursesw5-dev</depend>
+    <!-- <test_depend>ament_lint_common</test_depend> -->
+
+    <export>
+        <!-- <build_type>ament_cmake</build_type> -->
+    </export>
+</package>

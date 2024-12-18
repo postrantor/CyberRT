@@ -7,10 +7,10 @@ add_executable(mainboard
 )
 
 target_link_libraries(mainboard
-    ${TARGET_NAME}
-    pthread
+  ${TARGET_NAME}
+  pthread
 )
 
 set_target_properties(mainboard PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/cyber/mainboard
+  RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/cyber/mainboard
 )

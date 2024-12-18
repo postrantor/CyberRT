@@ -21,6 +21,5 @@ install(FILES timer.dag timer.launch
 )
 
 install(TARGETS timer_component_example
-    LIBRARY DESTINATION lib
+  LIBRARY DESTINATION lib
 )
-
