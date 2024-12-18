@@ -1,22 +1,30 @@
 # Apollo(v9.0.0) CyberRT
 
-![CyberRT](./docs/CyberRT.gif)
+## .bashrc
 
-| Target        |  CI Status  |
-| ------------- | :-----:|
-| Ubuntu18.04 x86_64   | [![build v9.0.0](https://github.com/minhanghuang/CyberRT/actions/workflows/ubuntu18-v9.0.0-build.yaml/badge.svg?branch=v9.0.0)](https://github.com/minhanghuang/CyberRT/actions/workflows/ubuntu18-v9.0.0-build.yaml) |
-| Ubuntu20.04 x86_64  | [![build v9.0.0](https://github.com/minhanghuang/CyberRT/actions/workflows/ubuntu20-v9.0.0-build.yaml/badge.svg?branch=v9.0.0)](https://github.com/minhanghuang/CyberRT/actions/workflows/ubuntu20-v9.0.0-build.yaml) |
-| Ubuntu22.04 x86_64  | [![build v9.0.0](https://github.com/minhanghuang/CyberRT/actions/workflows/ubuntu22-v9.0.0-build.yaml/badge.svg?branch=v9.0.0)](https://github.com/minhanghuang/CyberRT/actions/workflows/ubuntu22-v9.0.0-build.yaml) |
-| Ubuntu24.04 x86_64  | [![build v9.0.0](https://github.com/minhanghuang/CyberRT/actions/workflows/ubuntu24-v9.0.0-build.yaml/badge.svg?branch=v9.0.0)](https://github.com/minhanghuang/CyberRT/actions/workflows/ubuntu24-v9.0.0-build.yaml) |
-| Ubuntu latest x86_64  | [![build v9.0.0](https://github.com/minhanghuang/CyberRT/actions/workflows/ubuntu-latest-v9.0.0-build.yaml/badge.svg?branch=v9.0.0)](https://github.com/minhanghuang/CyberRT/actions/workflows/ubuntu-latest-v9.0.0-build.yaml) |
-| Ubuntu18.04 arrch64 | [![build v9.0.0](https://github.com/minhanghuang/CyberRT/actions/workflows/ubuntu18-arrch64-v9.0.0-build.yaml/badge.svg?branch=v9.0.0)](https://github.com/minhanghuang/CyberRT/actions/workflows/ubuntu18-arrch64-v9.0.0-build.yaml) |
-| Ubuntu20.04  arrch64 | [![build v9.0.0](https://github.com/minhanghuang/CyberRT/actions/workflows/ubuntu20-arrch64-v9.0.0-build.yaml/badge.svg?branch=v9.0.0)](https://github.com/minhanghuang/CyberRT/actions/workflows/ubuntu20-arrch64-v9.0.0-build.yaml) |
-| Ubuntu22.04 arrch64 | [![build v9.0.0](https://github.com/minhanghuang/CyberRT/actions/workflows/ubuntu22-arrch64-v9.0.0-build.yaml/badge.svg?branch=v9.0.0)](https://github.com/minhanghuang/CyberRT/actions/workflows/ubuntu22-arrch64-v9.0.0-build.yaml) |
-| Ubuntu latest arrch64 | [![build v9.0.0](https://github.com/minhanghuang/CyberRT/actions/workflows/ubuntu-latest-arrch64-v9.0.0-build.yaml/badge.svg?branch=v9.0.0)](https://github.com/minhanghuang/CyberRT/actions/workflows/ubuntu-latest-arrch64-v9.0.0-build.yaml) |
+```bash
+export MACHINE=cyber
 
-## #1 Env
+export http_proxy=http://192.168.31.201:7891
+export https_proxy=http://192.168.31.201:7891
 
-> dependence
+export PATH=.:${HOME}/.local/bin:$PATH
+
+# set workdir
+export CURRENT_WORKDIR=${HOME}/project/cyber_ws/
+export CYBER_WORKDIR=${CURRENT_WORKDIR}
+source ${CURRENT_WORKDIR}/.env/bashrc
+source ${CURRENT_WORKDIR}/.env/custom
+```
+
+## download fast-rtps
+
+copy from apollo [dockerfile](apollo/docker/build/installers)
+
+```bash
+wget -t 10  https://apollo-system.cdn.bcebos.com/archive/6.0/fast-rtps-1.5.0-1.prebuilt.x86_64.tar.gz -P ./
+wget -t 10  https://apollo-system.cdn.bcebos.com/archive/6.0/fast-rtps-1.5.0-1.prebuilt.aarch64.tar.gz -P ./
+```
 
 ```shell
 sudo apt update
@@ -24,49 +32,23 @@ sudo apt install -y uuid-dev libncurses5-dev python3-dev python3-pip
 python3 -m pip install protobuf==3.14.0
 ```
 
-## #2 Build
-
-1. clone
-
-```shell
-git clone --single-branch --branch v9.0.0 https://github.com/minhanghuang/CyberRT.git
-cd CyberRT
-```
-
-2. build third party
-
-> install
-
 ```shell
 sudo python3 install.py
 # sudo python3 install.py --platform <your-platform-machine> --install_prefix <your-install-path>
 ```
 
-> export path
-
 ```shell
 source install/setup.bash
 ```
 
-3. build cyber
-
-```shell
-mkdir build && cd build
-cmake ..
-make -j$(nproc)
-```
-
-## #3 Examples
+## Examples
 
 1. pub/sub
-
-> talker
 
 ```shell
 source setup.bash
 ./cyber/examples/cyber_example_talker
 ```
-> listener
 
 ```shell
 source setup.bash
@@ -92,11 +74,9 @@ If you want to modify the log storage path, you can change the `GLOG_log_dir` en
 # export GLOG_log_dir=/path/to/cyber/log
 ```
 
-## #4 Tools
+## Tools
 
 1. channel
-
-> list
 
 ```shell
 source setup.bash
@@ -106,14 +86,12 @@ cyber_channel list
 # /apollo/test
 ```
 
-> echo
 ```shell
 source setup.bash
 cyber_channel echo /apollo/test
 ```
-![example](docs/cyber_echo.png)
 
-> more ...
+![example](docs/cyber_echo.png)
 
 ```shell
 Commands:
@@ -164,7 +142,7 @@ Commands:
 	cyber_recorder recover	Recover an exist record.
 ```
 
-## #5 Packages
+## Packages
 
 ```shell
 cmake -DCMAKE_INSTALL_PREFIX=/you/install/path ..

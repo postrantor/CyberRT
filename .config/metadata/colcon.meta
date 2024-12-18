@@ -1,0 +1,64 @@
+{
+  "names": {
+    "cyber_rt": {
+      "cmake-args": [
+        "-Dfastrtps_DIR=/home/trantor/project/cyber_ws/install/fastrtps/lib/fastrtps/cmake/",
+        "-Dfastcdr_DIR=/home/trantor/project/cyber_ws/install/fastcdr/lib/fastcdr/cmake/"
+      ],
+      "dependencies": [
+        "nlohmann_json",
+        "protobuf",
+        "gflags",
+        "glog",
+        "googletest"
+      ]
+    },
+    "protobuf": {
+      "cmake-args": [
+        "-Dprotobuf_BUILD_TESTS=OFF",
+        "-Dprotobuf_BUILD_SHARED_LIBS=ON",
+        "-Dprotobuf_BUILD_EXAMPLES=OFF"
+      ]
+    },
+    "fastrtps": {
+      "cmake-args": [
+        "-DTHIRDPARTY=ON",
+        "-DEPROSIMA_BUILD=OFF",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DEPROSIMA_INSTALLER=OFF",
+        "-DCOMPILE_EXAMPLES=OFF"
+      ]
+    },
+    "nlohmann_json": {
+      "cmake-args": []
+    },
+    "tinyxml2": {
+      "cmake-args": []
+    },
+    "gflags": {
+      "cmake-args": [
+        "-DCMAKE_CXX_FLAGS=-fPIC",
+        "-DBUILD_SHARED_LIBS=ON",
+        "-DWITH_GFLAGS=ON"
+      ]
+    },
+    "glog": {
+      "cmake-args": [
+        "-DCMAKE_CXX_FLAGS=-fPIC",
+        "-DBUILD_SHARED_LIBS=ON",
+        "-DCMAKE_BUILD_TYPE=OFF"
+      ]
+    },
+    "googletest-distribution": {
+      "cmake-args": [
+        "-DCMAKE_CXX_FLAGS=-Wno-error=maybe-uninitialized"
+      ]
+    },
+    "googletest": {
+      "cmake-args": [
+        "-DCMAKE_CXX_FLAGS=-fPIC",
+        "-DBUILD_SHARED_LIBS=ON"
+      ]
+    }
+  }
+}
