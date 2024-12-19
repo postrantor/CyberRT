@@ -1,16 +1,16 @@
 {
   "names": {
     "cyber_rt": {
-      "cmake-args": [
-        "-Dfastrtps_DIR=/home/trantor/project/cyber_ws/install/fastrtps/lib/fastrtps/cmake/",
-        "-Dfastcdr_DIR=/home/trantor/project/cyber_ws/install/fastcdr/lib/fastcdr/cmake/"
-      ],
+      "cmake-args": [],
       "dependencies": [
+        "fastcdr",
+        "fastrtps",
         "nlohmann_json",
         "protobuf",
         "gflags",
         "glog",
-        "googletest"
+        "googletest",
+        "fastrtps"
       ]
     },
     "protobuf": {
@@ -27,6 +27,10 @@
         "-DCMAKE_BUILD_TYPE=Release",
         "-DEPROSIMA_INSTALLER=OFF",
         "-DCOMPILE_EXAMPLES=OFF"
+      ],
+      "dependencies": [
+        "tinyxml2",
+        "fastcdr"
       ]
     },
     "nlohmann_json": {

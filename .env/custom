@@ -91,8 +91,8 @@ function import-cyber-src {
   done
 
   # 添加patch
-  add_patch "fast-rtps" "dds/fast-rtps" "0001-fastrtps-split-patch-for-rtps.patch"
-  add_patch "fast-cdr" "dds/fast-cdr" "0001-fastrtps-split-patch-for-cdr.patch"
+  add_patch "fastrtps" "dds/fastrtps" "0001-fastrtps-split-patch-for-rtps.patch"
+  add_patch "fastcdr" "dds/fastcdr" "0001-fastrtps-split-patch-for-cdr.patch"
   add_patch "cyber-rt" "cyber-rt" "0001-cyber-refactor-build.patch"
 
   echo "Import completed successfully."

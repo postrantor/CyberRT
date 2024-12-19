@@ -4,14 +4,27 @@ repositories:
     url: https://github.com/minhanghuang/CyberRT.git
     version: v9.0.0
 
-  dds/fast-rtps:
+  dds/fastrtps:
     type: git
     url: https://github.com/eProsima/Fast-RTPS.git
     version: v1.5.0
-  dds/fast-cdr:
+  dds/fastcdr:
     type: git
     url: http://github.com/eProsima/Fast-CDR.git
-    version: affa48d
+    version: affa48d511a36351ef24d40029db1e8217be86b1
+  dds/asio:
+    type: git
+    url: https://github.com/chriskohlhoff/asio.git
+  dds/tinyxml2:
+    type: git
+    url: https://github.com/leethomason/tinyxml2.git
+    version: 8.0.0
+  dds/android-ifaddrs:
+    type: git
+    url: https://github.com/michalsrb/android-ifaddrs.git
+  dds/idl:
+    type: git
+    url: http://github.com/eProsima/IDL-Parser.git
 
   # thirdpart
   thirdpart/gflags:
@@ -38,11 +51,6 @@ repositories:
     type: git
     url: https://github.com/nlohmann/json.git
     version: v3.11.3
-
-  thirdpart/tinyxml2:
-    type: git
-    url: https://github.com/leethomason/tinyxml2.git
-    version: 8.0.0
 
   # apt install libncurses5-dev libncursesw5-dev
   # thirdpart/ncurses:
